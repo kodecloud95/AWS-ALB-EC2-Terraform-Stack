@@ -1,5 +1,8 @@
 AWS ALB & EC2 Terraform Stack
 
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/88dcccbd-ea4d-4319-8710-e4be044ba1e5" />
+
+
 This project automates the deployment of an Application Load Balancer (ALB) and a set of EC2 Instances within a custom VPC using Terraform and Jenkins.
 
 🏗️ Infrastructure Overview
