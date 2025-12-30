@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    parameters{
+        choice(name: 'operation', choices: ['Deploy', 'Destroy'], description: 'Choose to Deploy or Destroy Infrastructure')
+    }
     environment {
         AWS_ACCESS_KEY_ID = credentials('AWS_CREDENTIAL')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_CREDENTIAL')
@@ -31,6 +34,18 @@ pipeline {
                 // Add your deploy steps here
                 dir ("terraform") { 
                     sh "terraform apply -auto-approve"
+                }
+            }
+        }
+        stage('Destroy') {
+            when {
+                expression { params.operation == 'Destroy' }
+            }
+            steps {
+                echo 'Deploying...'
+                // Add your deploy steps here
+                dir ("terraform") { 
+                    sh "terraform destroy -auto-approve"
                 }
             }
         }
