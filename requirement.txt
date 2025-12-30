@@ -1,0 +1,19 @@
+To run this project successfully, you must ensure the following software and configurations are in place.
+A. Infrastructure Requirements
+  * AWS Account: An active account with programmatic access (Access Key & Secret Key).
+  * IAM Permissions: The user must have AdministratorAccess (for testing) or specific permissions for VPC, EC2, and ALB.
+B. Software Dependencies (On Jenkins Server / Local Machine)
+  Software	Recommended Version	Purpose
+  Terraform	1.5.0 or higher	To provision the AWS infrastructure.
+  AWS CLI	Latest (v2)	Used by Terraform and Jenkins to communicate with AWS.
+  Git	Latest	To pull the code from your GitHub repository.
+C. Jenkins Plugins & Configuration
+  You must install these specific plugins in Jenkins:
+  1. Terraform Plugin: To manage Terraform versions within Jenkins.
+  2. AWS Credentials Plugin: To securely store and inject your AWS keys.
+  3. Pipeline Plugin: To run the Jenkinsfile logic.
+Credentials to Configure in Jenkins:
+  * Kind: AWS Credentials
+  * ID: AWS_CREDENTIAL (Must match what is in your Jenkinsfile)
+  * Access Key ID: Your-Access-Key
+  * Secret Access Key: Your-Secret-Key
